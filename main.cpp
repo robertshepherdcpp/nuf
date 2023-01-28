@@ -2,6 +2,7 @@
 #include"index.hpp"
 
 #include<iostream> // std::cout
+#include<tuple>    // std::tuple
 
 int main()
 {
@@ -15,4 +16,14 @@ int main()
 
     // prints "Hello World"
     Hello_World.invoke(nuf::index<0>{});
+
+    nuf::operation_stack<
+        []() {return 56; },
+        []() {return 3.142; },
+        []() {return 'c'; },
+        []() {return true; }
+    > return_types{};
+
+    auto x = return_types.get_all_returns();
+    std::cout << "\n" << std::get<2>(x) << "\n";
 }
