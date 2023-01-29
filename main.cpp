@@ -26,4 +26,13 @@ int main()
 
     auto x = return_types.get_all_returns();
     std::cout << "\n" << std::get<2>(x) << "\n";
+
+    nuf::operation_stack<
+        []<auto I>() constexpr { return I + 4; },
+        []<auto I>() constexpr { return (I / 4) * 8; },
+        []<auto I>() constexpr { return I + 16; },
+        []<auto I>() constexpr { return I / 6; }
+    > pipeline{};
+
+    //pipeline.pipe<4>();
 }
