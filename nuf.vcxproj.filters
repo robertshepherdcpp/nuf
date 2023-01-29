@@ -32,5 +32,8 @@
     <ClInclude Include="lambda_wrap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inline_if.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
