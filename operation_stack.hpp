@@ -64,5 +64,11 @@ namespace nuf
                 return lambda_wrapper<get_nth_element<0>(Ts...), I>{}.and_then<get_nth_element<indexes>(Ts...)...>().val;
             }/*(std::make_index_sequence<sizeof...(Ts)>{})*/;
         }
+
+        template<auto I>
+        constexpr auto operator[](nuf::index<I>)
+        {
+            return nuf::get_nth_element<I>(Ts...);
+        }
     };
 } // namespace nuf
