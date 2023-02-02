@@ -20,6 +20,12 @@ namespace nuf
         template<auto I>
         constexpr auto invoke(nuf::index<I>)
         {
+            nuf::get_nth_element<I>(Ts...)();
+        }
+
+        template<auto I>
+        constexpr auto get_n_return(nuf::index<I>)
+        {
             return nuf::get_nth_element<I>(Ts...)();
         }
 
