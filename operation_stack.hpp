@@ -39,26 +39,6 @@ namespace nuf
             }(std::make_index_sequence < sizeof...(Ts)>{});
         }
 
-        template<auto first_call, auto starting_value>
-        struct lambda_wrapper
-        {
-            template<auto lambda, auto... lambdas>
-            constexpr auto and_then()
-            {
-                if constexpr ((sizeof(lambdas) + ... + 0) != 0)
-                {
-                    return lambda_wrapper<lambda, starting_value>{}.and_then<lambdas...>().val_non_static;
-                }
-                else if constexpr ((sizeof(lambdas) + ... + 0) == 0)
-                {
-                    return lambda_wrapper<lambda, starting_value>{}.val_non_static;
-                }
-            }
-
-            //static constexpr auto val = first_call<starting_value>();
-            //decltype(first_call<starting_value>()) val_non_static = first_call<starting_value>();
-        };
-
         template<auto I>
         constexpr auto pipe() -> decltype(auto)
         {

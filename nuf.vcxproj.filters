@@ -35,5 +35,8 @@
     <ClInclude Include="inline_if.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="lambda_vari_wrap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
