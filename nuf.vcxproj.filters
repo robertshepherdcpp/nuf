@@ -38,5 +38,11 @@
     <ClInclude Include="lambda_vari_wrap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="idx.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dummy_type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

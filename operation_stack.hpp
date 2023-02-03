@@ -2,6 +2,7 @@
 
 #include"get_nth_element.hpp"
 #include"index.hpp"
+#include"idx.hpp"
 
 #include<tuple>
 
@@ -15,6 +16,12 @@ namespace nuf
         constexpr auto invoke_all()
         {
             (..., Ts()); // doesn't return anything
+        }
+
+        template<auto I>
+        constexpr auto and_then(nuf::idx<I>)
+        {
+            return nuf::get_nth_element<I>(Ts...)();
         }
 
         template<auto I>
@@ -39,6 +46,16 @@ namespace nuf
             }(std::make_index_sequence < sizeof...(Ts)>{});
         }
 
+        template<auto lambda, auto I>
+        struct lambda_wrapper
+        {
+            template<auto... lambdas>
+            constexpr auto and_then()
+            {
+                return nuf::dummy_type{};
+            }
+        }
+
         template<auto I>
         constexpr auto pipe() -> decltype(auto)
         {
@@ -47,7 +64,7 @@ namespace nuf
             return[&]<std::size_t... indexes>(std::index_sequence<indexes...>)
             {
                 // return (get_nth_element<indexes>(Ts...)(I)...);
-                return lambda_wrapper<get_nth_element<0>(Ts...), I>{}.and_then<get_nth_element<indexes>(Ts...)...>().val;
+                return lambda_wrapper<nuf::get_nth_element<0>(Ts...), I>{}.and_then<nuf::get_nth_element<indexes>(Ts...)...>().val;
             }/*(std::make_index_sequence<sizeof...(Ts)>{})*/;
         }
 

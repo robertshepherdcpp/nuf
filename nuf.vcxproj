@@ -134,7 +134,9 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dummy_type.hpp" />
     <ClInclude Include="get_nth_element.hpp" />
+    <ClInclude Include="idx.hpp" />
     <ClInclude Include="index.hpp" />
     <ClInclude Include="inline_if.hpp" />
     <ClInclude Include="lambda_vari_wrap.hpp" />
