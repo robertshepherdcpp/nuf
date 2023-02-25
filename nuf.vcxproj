@@ -134,6 +134,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="do_expr.hpp" />
     <ClInclude Include="dummy_type.hpp" />
     <ClInclude Include="get_nth_element.hpp" />
     <ClInclude Include="idx.hpp" />

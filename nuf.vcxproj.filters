@@ -44,5 +44,8 @@
     <ClInclude Include="dummy_type.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="do_expr.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
