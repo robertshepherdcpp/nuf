@@ -37,7 +37,7 @@ So as you can see, you pass all the things as non type template parameters, and 
 template<auto T>
 struct x_or_y
 {
-  static constexpr auto value = inline_if<T, [](auto& x){return T == 42;}, [](auto& x){return T != 42;}, 'c', true>{}();
+  static constexpr auto value = inline_if<T, [](auto x){return T == 42;}, [](auto x){return T != 42;}, 'c', true>{}();
 };
 
 int main()
